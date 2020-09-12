@@ -6,19 +6,39 @@ public final class Tayota extends Car {
     private Pricep pricep;
     private Color color;
 
-    public Tayota(int cilindr, int obem, String model, int year, Pricep pricep, Color color) {
-        super(cilindr, obem);
+    public Tayota(int cilindr, int obem, String model, int year, Pricep pricep) {
+        super(cilindr);
         this.model = model;
         this.year = year;
         this.pricep = pricep;
-        this.color = color;
+        chooseColor();
     }
 
+    public void method(Tayota tayota) {
+        pricep = tayota.pricep;
+        year = tayota.year;
+        color = tayota.color;
+    }
+
+    public void chooseColor() {
+        switch (random()) {
+            case 0 -> color = Color.black;
+            case 2 -> color = Color.brown;
+            case 3 -> color = Color.Gray;
+            case 4 -> color = Color.green;
+            case 5 -> color = Color.white;
+            case 6 -> color = Color.yellow;
+            case 1 -> color = Color.grey;
+            default -> System.out.println("Нет свет машины ");
+        }
+    }
 
     @Override
     public void raspechatka() {
         System.out.println("_________________________________________");
-        System.out.println("model  " + model + "\nyear  " + year + "\npripsep " + pricep.getVes() + "\ncolor " + color);
+        System.out.println("Модель машины  " + model +
+                "\nyear  " + year +
+                "\nРазришена для Припсепа  " + pricep.getVes() + "кг " + "\ncolor " + color);
 
     }
 
@@ -34,9 +54,13 @@ public final class Tayota extends Car {
         return pricep;
     }
 
+    public Color getColor() {
+        return color;
+    }
+
     @Override
     public void zvuk(String zvuk, int colich) {
-        System.out.println("zvuk " + zvuk);
-        System.out.println("Кольичество звук "+ colich);
+        System.out.println("Звук: " + zvuk);
+        System.out.println("Кольичество звук: " + colich);
     }
 }

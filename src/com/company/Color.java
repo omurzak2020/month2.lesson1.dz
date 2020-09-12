@@ -1,7 +1,11 @@
 package com.company;
 
 public enum Color {
-    KRASNYI,
-    SINIY,
-    JELTYI
+    Gray,
+    white,
+    black,
+    yellow,
+    green,
+    grey,
+    brown
 }
